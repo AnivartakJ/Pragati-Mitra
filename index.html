@@ -1,0 +1,203 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/> 
+
+	<title>Pragati Mitra</title>
+    
+	<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+	<script type="text/javascript" src="js/jquery.json-2.3.min.js"></script>
+	<script type="text/javascript" src="js/jstorage.min.js"></script>
+	<script type="text/javascript" src="js/chainTimeline.js"></script>
+	<script type="text/javascript" src="js/statsChain.js"></script>
+	<script type="text/javascript" src="js/syncChain.js"></script>
+	
+
+	<link href="style/fonts/pt-sans.css" rel="stylesheet" type="text/css"/>
+	<link href="style/style.css" rel="stylesheet" type="text/css"/>
+	<link rel="icon" type="image/x-icon" href="goal.png">
+</head>
+<header>
+	<img src="goal.png" alt="Logo" style="width: 100px; height: 100px;">
+</header>
+
+<!--[if lt IE 9]><body class="iefilter"><![endif]-->
+<!--[if !(lt IE 9)|!(IE)]><!-->
+<body>
+<!--<![endif]-->
+
+<div id="wrapper">
+	<div id="header">
+		<div class="left">
+			<h1>Pragati Mitra</h1>
+			<p>Consistency is key. Achieve the longest chain possible.</p>
+		</div>
+		<div class="right">
+			<ul>
+				<li><a href="https://github.com/dandreamconception/keep-the-chain/zipball/master">Download Tool</a> - <a href="http://keep-the-chain.com/">Get Beta Invite</a></li>
+				<li>This is a <a href="http://dreamconception.com/" target="_blank">Dream Conception</a> product</li>
+			</ul>
+		</div>
+
+		<div class="clear"></div>
+
+		<div class="box">
+			<ul>
+				<li><strong>Do not push yourself too hard!</strong> The chain will break due to excessive action.</li>
+				<li><strong>Do not be lazy!</strong> Get todays part of the chain done as soon as possible.</li>
+				<li><strong>90 days consistency are needed!</strong> To lay off an old habit, 3 months are needed to change the neuronal wiring.</li>
+				<li><strong>If the chain breaks, don't worry!</strong> It is fine to take a few days to relax, don't sweat it.</li>
+				<li><strong>If you flush/delete the database storage of your browser,</strong> this page will be flushed as well.</li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="clear"></div>
+
+	<div id="chainTimelineSynchronization"></div>
+	<div id="chainTimeline"></div>
+
+	<div class="content" id="readme">
+		<div class="box">
+			<h2>What is this, and how do I use it?</h2>
+			<div>
+				<p>This is a tool to keep consistency with your goals, and in your life. It is a simple prototype of a complete new way to keep track of your life, and to reach new plateaus. The premis is simple; <strong>keep the chain as long as possible</strong>.</p>
+				<p>You might want to do a good deed every day, exercise every day, make sure you write something every day, or something completely different. It just have to be something you need to do for a longer period. <strong>Note:</strong> If you are tracking, e.g. exercise, you might want to keep a day, or two, off every week. If this is your workout regime, then you should just mark these days done, as it is still part of the chain.</p>
+				<p>Are you interested in more? <a href="http://keep-the-chain.com/">Then you should sign up for beta access to the feature rich consistency tool</a>, where you can keep up with your friends, automate the process, and much more.</p>
+			</div>
+		</div>
+		<div class="box">
+			<h2>Limitations and features</h2>
+			<ul>
+				<li>This tool works with local storage. Nothing is stored on any servers, it is all in your local computer!</li>
+				<li>Obviously, the restriction are that you are not able to switch to another computer, or other browser to continue the tracking. It will only be stored in your local browser. If you wish a much more feature rich tracking tool, then <a href="http://keep-the-chain.com/">sign up for beta access to our new consistency tool</a>.</li>
+				<li><strong>Note:</strong> There is a synchronization module built-in as well, in case you wish access your data from multiple devices. When enabled, the module will connect to the keep-the-chain.com's server, and backup your data.</li>
+				<li>You can <a href="https://github.com/dandreamconception/keep-the-chain/zipball/master">download the tool</a>, share it, and even <a href="https://github.com/dandreamconception/keep-the-chain/" target="_blank">modify it</a>.</li>
+				<li>This tool is released under MIT license, and the design is copyright 2012 under <a href="http://dreamconception.com/" target="_blank">Dream Conception</a>.</li>
+			</ul>
+		</div>
+		<div class="box">
+			<h2>Tips</h2>
+			<ul>
+				<li>The system works best if you see the timeline as much as possible to keep remind you about the work day. It can be in a second monitor, or wherever you like</li>
+			</ul>
+		</div>
+	</div>
+
+	
+	<div class="clear"></div>
+
+	<script type="text/javascript">
+		// Retrieve saved data
+		var key = "chain-data";
+
+		// Load functionality
+		function loadData () {
+			if (typeof console == 'object') console.log("Current storage size are: "+$.jStorage.storageSize());
+			var data = $.jStorage.get(key, false);
+			if (data) return data;
+			else return {};
+		}
+
+		// Save functionality
+		function saveData (data) {
+			$.jStorage.set(key, data);
+
+			// We will remove readme auto scroll if data is saved
+			if (window.location.hash == '#readme') {
+				window.location.hash = '';
+			}
+		}
+
+		// Reset functionality
+		function resetData () {
+			var reset = confirm("You wish to reset all data? Data CANNOT be recovered after this.");
+			if (reset) {
+				$.jStorage.deleteKey(key);
+			}
+		}
+		
+		function postProcess (object){
+			$("#chainTimeline").append('<br class="clear"/>'); // Add a clear to detect element height
+			
+			// Setting a min height because of re-rendering
+			$("#chainTimeline").css("min-height","0px");
+			$("#chainTimeline").css("min-height",$("#chainTimeline").height());
+
+			// Redo all the statistics and achievements
+			redoStats(object);
+			achievements(object);
+			achievementsBox(object);
+			socialShare(object);
+			
+			// Automatically position the scroll to the last checked row, if possible.
+			// If there is a #readme hash in the URL, we will scroll to readme instead.
+			if (window.location.hash != '#readme') {
+				var newestEl = $(".monthList .checked").last();
+				if (newestEl.length && (newestEl.offset().top-$(window).scrollTop())>$(window).height()/2) {
+					$('html, body').animate({scrollTop: $(newestEl).offset().top}, 200);
+				}
+			} else {
+				$('html, body').animate({scrollTop: $("#readme").offset().top}, 200);
+			}
+		}
+
+		var chainTimelineObj;
+		$(document).ready(function(){
+			// We build the timeline object first.
+			chainTimelineObj = renderChainTimeline('chainTimeline', null, loadData, saveData, resetData, postProcess);
+
+			// Then start the timer.
+			startTimer();
+
+			// At last, we build the synchronization object.
+			// There is both save and load functionality to be included here, for the credentials.
+			syncChainData('chainTimelineSynchronization', chainTimelineObj, function(){return $.jStorage.get('syncDataAuth', false);}, function(data){$.jStorage.set('syncDataAuth', data);});
+		});
+	</script>
+		
+	<div id="footer">
+		<div class="wrapper">
+			<div class="info">
+ 				<h1>Current chain</h1>
+				<h3><span id="current_chain">0</span> days <span id="current_chain_txt">Keep going</span></h3>
+			</div>
+			<div class="data">
+				<ul>
+					<li>
+						<h1 id="active_days">0</h1>
+						<h3>Active Days</h3>
+					</li>
+				</ul>
+				<ul>
+					<li>
+						<h1 id="longest_chain">0</h1>
+						<h3>Longest Chain</h3>
+					</li>
+				</ul>
+				<ul>
+					<li>
+						<h1 id="no_achievements">0</h1>
+						<h3>Achievements</h3>
+					</li>
+				</ul>
+				<ul class="last">
+					<li>
+						<a class="first social facebook" target="_blank" href="#"></a>
+						<a class="social twitter" target="_blank" href="#"></a>
+						<a class="social linkedin" target="_blank" href="https://www.linkedin.com/in/anivartak-jain-4b6414208/"></a>
+						<div class="clear"></div>
+						<h3>Share your progress</h3>
+					</li>
+				</ul>
+			</div>
+			<div class="time">
+				<h1 id="time_left"></h1>
+				<h3 id="time_left_txt"></h3>
+			</div>
+		</div>
+	</div>
+</div>
+
+</body>
+</html>	

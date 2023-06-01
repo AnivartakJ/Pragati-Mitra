@@ -1,39 +1,40 @@
-# Keep the chain
+# Pragati Mitra
 
-"Keep the chain" is a tool to keep consistency with your goals, and in your life. It is a simple prototype of a complete new way to keep track of your life, and to reach new plateaus. The premis is simple; keep the chain as long as possible.
-
-You might want to do a good deed every day, exercise every day, make sure you write something every day, or something completely different. It just have to be something you need to do for a longer period. Note: If you are tracking, e.g. exercise, you might want to keep a day, or two, off every week. If this is your workout regime, then you should just mark these days done, as it is still part of the chain.
-
-More information can be found at http://keep-the-chain.com
-
-This function works as a pure Javascript standalone prototype by Dream Conception.
-
-#### Features
-* Kill procrastination
-* Increase productivity, and proactivity
-* This tool works with local storage. Nothing is stored on any servers, it is all in your local computer!
-* Obviously, the restriction are that you are not able to switch to another computer, or other browser to continue the tracking. It will only be stored in your local browser.
-* You can download the tool, share it, and even modify it.
-* This tool is released under MIT license, and the design is copyright 2012 under Dream Conception.
+![image](https://github.com/AnivartakJ/Pragati-Mitra/assets/126934403/377bfa67-0071-4c9f-b42e-7f7db56065f3)
 
 
-## Known issues
-* IE9: If you are using file:// access, the local storage do not work.
+Pragati Mitra is a goal management and progress tracking application designed to empower users in achieving their goals and unlocking their true potential. With its personalized guidance, real-time progress tracking, and intuitive generative chatbot, Pragati Mitra revolutionizes the way goals are set, monitored, and achieved.
 
+## Features
+![image](https://github.com/AnivartakJ/Pragati-Mitra/assets/126934403/b6909076-cea1-43f9-9fb0-54d7d8df6777)
 
-## Get started
+- Goal Setting: Set personalized goals and define clear objectives.
+- Progress Tracking: Track your progress in real-time and visualize your achievements.
+- Scheduling and Monitoring: Schedule targets and monitor their completion.
+- Generative Chatbot: Interact with an intelligent chatbot that provides personalized guidance and support.
+- Milestone Celebrations: Celebrate milestones and accomplishments along your journey.
+- Insights and Analytics: Gain valuable insights and analytics to understand your performance.
+- Reminders and Notifications: Receive timely reminders and notifications to stay on track.
+- Task Management: Effectively manage your tasks and stay organized.
 
-To get started, you simply put all the files in one directory, and access index.html. Download the zip and unpack, or just fork it.
+## Getting Started
 
-Start by setting a goal to track, such as e.g. exercise every day, or write down a new idea every day. Then start track it every day.
+To get started with Pragati Mitra, follow these steps:
 
-Tip: The system works best if you see the timeline as much as possible to keep remind you about the work day. It can be in a second monitor, or wherever you like.
+1. Clone this repository: `git clone https://github.com/your-username/PragatiMitra.git`
+2. Open the index.html file in your web browser.
+3. Sign up or log in to create your account and start setting goals and tracking your progress.
 
+## Demo
+![image](https://github.com/AnivartakJ/Pragati-Mitra/assets/126934403/1f51629a-3520-407d-bbcc-2c6daa463172)
 
-## Links
-Project website: http://keep-the-chain.com/
-Organization website: http://dreamconception.com/
+Check out the Pragati Mitra live demo [here](https://vxzdnk7ulcg8zi6zuamd9w.on.drv.tw/www.PragatiMitra/webflow.com/webflow.com/PragatiMitra.html).
 
+## Contributions
 
-## About
-Dan Schultzer works at [Dream Conception](http://dreamconception.com/). This project works as a standalone prototype by Dream Conception, for an upcoming project. It is meant to be used as a consistency tool.
+Contributions to Pragati Mitra are welcome! If you encounter any bugs, have feature suggestions, or would like to contribute to the project, please submit an issue or a pull request.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
+

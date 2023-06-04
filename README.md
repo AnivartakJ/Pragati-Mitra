@@ -16,7 +16,7 @@ Pragati Mitra is a goal management and progress tracking application designed to
 - Insights and Analytics: Gain valuable insights and analytics to understand your performance.
 - Reminders and Notifications: Receive timely reminders and notifications to stay on track.
 - Task Management: Effectively manage your tasks and stay organized.
-
+ 
 ## Getting Started
 
 To get started with Pragati Mitra, follow these steps:

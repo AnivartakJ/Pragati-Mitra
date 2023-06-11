@@ -5,7 +5,7 @@
 
 Pragati Mitra is a goal management and progress tracking application designed to empower users in achieving their goals and unlocking their true potential. With its personalized guidance, real-time progress tracking, and intuitive generative chatbot, Pragati Mitra revolutionizes the way goals are set, monitored, and achieved.
 
-## Features
+## Features 
 ![image](https://github.com/AnivartakJ/Pragati-Mitra/assets/126934403/b6909076-cea1-43f9-9fb0-54d7d8df6777)
 
 - Goal Setting: Set personalized goals and define clear objectives.
